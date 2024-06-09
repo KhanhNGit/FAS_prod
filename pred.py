@@ -18,7 +18,7 @@ input_names = [i.name for i in sess.get_inputs()]
 input_shape = sess.get_inputs()[0].shape
 
 def inference(img):
-    image = crop_face(img)[1]
+    image = crop_face(face_detecter, img)[1]
     transformed_image = transform(image)
     input_tensor = transformed_image.reshape(input_shape).cpu().numpy()
     outputs = sess.run(None, {input_names[0]: input_tensor, input_names[1]: input_tensor})
