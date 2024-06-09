@@ -41,10 +41,10 @@ def handle(img):
     else:
         img_crop, res, conf = inference(image)
         col2.write("#### Kết quả nhận diện :clipboard:")
-        col2.write("Phần ảnh chứa khuôn mặt người :scissors:")
+        col2.write("##### Phần ảnh chứa khuôn mặt người :scissors:")
         col2.image(img_crop, channels='RGB')
-        col2.write('Nhãn: '+res)
-        col2.write('Độ tin cậy: '+conf)
+        col2.write('##### Nhãn: '+res)
+        col2.write('##### Độ tin cậy: '+conf)
 
 st.set_page_config(layout="wide", page_title="Hệ thống chống giả mạo khuôn mặt")
 
