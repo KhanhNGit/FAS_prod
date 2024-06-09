@@ -59,6 +59,6 @@ my_upload = st.sidebar.file_uploader("Tải ảnh lên", type=["png", "jpg", "jp
 
 if my_upload is not None:
     if my_upload.size > MAX_FILE_SIZE:
-        st.error("The uploaded file is too large. Please upload an image smaller than 5MB.")
+        st.error("Tệp tải lên quá lớn. Vui lòng tải lên tệp có dung lượng nhỏ hơn 5MB.")
     else:
         handle(img=my_upload)
