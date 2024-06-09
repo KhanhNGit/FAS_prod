@@ -1,0 +1,6 @@
+numpy
+opencv-python-headless
+onnxruntime-gpu
+pillow
+streamlit
+torchvision
