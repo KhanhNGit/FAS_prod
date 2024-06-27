@@ -35,6 +35,7 @@ def handle(img):
     image = Image.open(img).convert('RGB')
     image = np.array(image)[:,:,::-1]
     col1.write("#### Ảnh gốc :camera:")
+    print(image.shape)
     image_res = image.resize((400, int(image.shape[0]/img.shape[1]*400)))
     col1.image(image_res, channels='BGR')
 
