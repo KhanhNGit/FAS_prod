@@ -13,7 +13,7 @@ face_detecter.prepare()
 
 # FAS model
 model_path = './weights/best_model.onnx'
-sess = ort.InferenceSession(model_path)
+sess = ort.InferenceSession(model_path, providers=['CPUExecutionProvider'])
 input_names = [i.name for i in sess.get_inputs()]
 input_shape = sess.get_inputs()[0].shape
 

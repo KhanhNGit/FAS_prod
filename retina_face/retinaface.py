@@ -56,7 +56,7 @@ class RetinaFace:
         self.taskname = 'detection'
         if self.session is None:
             assert self.model_file is not None
-            self.session = onnxruntime.InferenceSession(self.model_file)
+            self.session = onnxruntime.InferenceSession(self.model_file, providers=['CPUExecutionProvider'])
         self.center_cache = {}
         self.nms_thresh = 0.4
         self.det_thresh = 0.5
