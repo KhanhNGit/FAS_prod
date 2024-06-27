@@ -33,17 +33,17 @@ def inference(img):
 
 def handle(img):
     image = Image.open(img).convert('RGB')
+    image_res = image.resize((400, int(image.shape[0]/image.shape[1]*400)))
     image = np.array(image)[:,:,::-1]
+    image_res = np.array(image_res)
     col1.write("#### Ảnh gốc :camera:")
-    print(image.shape)
-    image_res = np.resize(image, (400, int(image.shape[0]/image.shape[1]*400), 3))
-    col1.image(image_res, channels='BGR')
+    col1.image(image_res, channels='RGB')
 
     if crop_face(face_detecter, image)[0] == False:
         st.error("File tải lên không chứa hình ảnh khuôn mặt người. Vui lòng thử lại với ảnh khác.")
     else:
         img_crop, res, conf = inference(image)
-        img_crop_res = np.resize(img_crop, (350, int(img_crop.shape[0]/img_crop.shape[1]*350), 3))
+        img_crop_res = img_crop.resize((350, int(img_crop.shape[0]/img_crop.shape[1]*350)))
         col2.write("#### Kết quả nhận diện :clipboard:")
         col2.write("##### Phần ảnh chứa khuôn mặt người :scissors:")
         col2.image(img_crop_res, channels='RGB')
